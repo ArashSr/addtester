@@ -24,15 +24,10 @@
         </div>
         
         <script>
-            // Check authentication
-            if (localStorage.getItem('adblockTesterAuth') !== 'true') {
-                window.location.href = 'login.html';
-            } else {
-                // Auto-redirect to the AdBlock tester after 1 second
-                setTimeout(function() {
-                    window.location.href = 'adblock.html';
-                }, 1000);
-            }
+            // Auto-redirect to the AdBlock tester after 1 second
+            setTimeout(function() {
+                window.location.href = 'adblock.html';
+            }, 1000);
         </script>
     </main>
     <%- include('partials/footer.ejs') %>

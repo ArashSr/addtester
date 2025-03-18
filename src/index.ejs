@@ -15,7 +15,19 @@
 	<%- include('partials/adblock/changelog.ejs') %>
     <%- include('partials/header.ejs', {page:'index'}) %>
     <main class="_ta-center">
-        <div class="_pb-1">
+        <div id="password-container" class="_pb-1">
+			<div class="_bg-gray _radius _p-1 better_r">
+				<h1>AdBlock Tester</h1>
+				<p>Please enter the password to access the AdBlock tester:</p>
+                <div style="margin: 20px 0;">
+                    <input type="password" id="password-input" placeholder="Enter password" style="padding: 10px; border-radius: 4px; border: 1px solid #ccc; width: 250px; margin-right: 10px;">
+                    <button id="password-submit" class="btn-primary" style="display: inline-block; padding: 10px 20px; background-color: #3b82f6; color: white; border: none; border-radius: 6px; font-weight: 500; cursor: pointer;">Submit</button>
+                </div>
+                <p id="password-error" style="color: #ef4444; display: none;">Incorrect password. Please try again.</p>
+			</div>
+        </div>
+        
+        <div id="content-container" class="_pb-1" style="display: none;">
 			<div class="_bg-gray _radius _p-1 better_r">
 				<h1>AdBlock Tester</h1>
 				<p>Test your ad blocker's effectiveness against a wide range of advertising, tracking, and analytics domains.</p>
@@ -24,10 +36,55 @@
         </div>
         
         <script>
-            // Auto-redirect to the AdBlock tester after 1 second
-            setTimeout(function() {
-                window.location.href = 'adblock.html';
-            }, 1000);
+            // Password verification
+            document.addEventListener('DOMContentLoaded', function() {
+                const correctPassword = "ams505";
+                const passwordInput = document.getElementById('password-input');
+                const passwordSubmit = document.getElementById('password-submit');
+                const passwordError = document.getElementById('password-error');
+                const passwordContainer = document.getElementById('password-container');
+                const contentContainer = document.getElementById('content-container');
+                
+                // Check if already authenticated
+                const isAuthenticated = localStorage.getItem('adblock_tester_auth');
+                if (isAuthenticated === 'true') {
+                    passwordContainer.style.display = 'none';
+                    contentContainer.style.display = 'block';
+                    
+                    // Auto-redirect to the AdBlock tester after 1 second
+                    setTimeout(function() {
+                        window.location.href = 'adblock.html';
+                    }, 1000);
+                }
+                
+                // Password verification
+                passwordSubmit.addEventListener('click', verifyPassword);
+                passwordInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        verifyPassword();
+                    }
+                });
+                
+                function verifyPassword() {
+                    if (passwordInput.value === correctPassword) {
+                        // Store authentication in localStorage
+                        localStorage.setItem('adblock_tester_auth', 'true');
+                        
+                        // Show content
+                        passwordContainer.style.display = 'none';
+                        contentContainer.style.display = 'block';
+                        
+                        // Redirect to AdBlock tester
+                        setTimeout(function() {
+                            window.location.href = 'adblock.html';
+                        }, 1000);
+                    } else {
+                        // Show error
+                        passwordError.style.display = 'block';
+                        passwordInput.value = '';
+                    }
+                }
+            });
         </script>
     </main>
     <%- include('partials/footer.ejs') %>

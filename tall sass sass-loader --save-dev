@@ -1,0 +1,112 @@
+[33mcommit f9248874f6af3993e7b6046574536cf459202780[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: ArashSr <89564009+ArashSr@users.noreply.github.com>
+Date:   Tue Mar 18 11:23:11 2025 -0700
+
+    Fix text color and background for better readability in AdBlock tester
+
+[1mdiff --git a/src/adblock.ejs b/src/adblock.ejs[m
+[1mindex 5b1279c..91ce809 100644[m
+[1m--- a/src/adblock.ejs[m
+[1m+++ b/src/adblock.ejs[m
+[36m@@ -34,7 +34,7 @@[m
+ 						<button id="settings_btn" class="btn-secondary">Settings</button>[m
+ 					</div>[m
+ 					[m
+[31m-					<div id="test_results" class="_bg-white _radius _p-1 better_r _mb-1" style="display: none;">[m
+[32m+[m					[32m<div id="test_results" class="_bg-white _radius _p-1 better_r _mb-1" style="display: none; background-color: white !important; color: #333333;">[m
+ 						<h2>Test Results</h2>[m
+ 						<div class="results-summary">[m
+ 							<div class="score-container">[m
+[1mdiff --git a/src/js/adblock-test.js b/src/js/adblock-test.js[m
+[1mindex 478508a..e6d70d8 100644[m
+[1m--- a/src/js/adblock-test.js[m
+[1m+++ b/src/js/adblock-test.js[m
+[36m@@ -15,6 +15,15 @@[m [mdocument.addEventListener('DOMContentLoaded', function() {[m
+     const trackersScore = document.getElementById('trackers_score');[m
+     const analyticsScore = document.getElementById('analytics_score');[m
+ [m
+[32m+[m[32m    // Force background color and text color for visibility[m
+[32m+[m[32m    testResults.style.backgroundColor = 'white';[m
+[32m+[m[32m    testResults.style.color = '#333333';[m
+[32m+[m[41m    [m
+[32m+[m[32m    if (testRunning) {[m
+[32m+[m[32m        testRunning.style.backgroundColor = 'white';[m
+[32m+[m[32m        testRunning.style.color = '#333333';[m
+[32m+[m[32m    }[m
+[32m+[m
+     // Test domains by category[m
+     const testDomains = {[m
+         ads: [[m
+[36m@@ -171,6 +180,7 @@[m [mstyle.textContent = `[m
+ .score-circle span {[m
+     font-size: 24px;[m
+     font-weight: bold;[m
+[32m+[m[32m    color: #333333;[m
+ }[m
+ [m
+ .results-summary {[m
+[36m@@ -181,14 +191,14 @@[m [mstyle.textContent = `[m
+     margin-bottom: 20px;[m
+ }[m
+ [m
+[31m-.score-container {[m
+[31m-    flex: 0 0 auto;[m
+[31m-}[m
+[31m-[m
+ .results-details {[m
+     flex: 1;[m
+ }[m
+ [m
+[32m+[m[32m.results-details p {[m
+[32m+[m[32m    color: #333333;[m
+[32m+[m[32m}[m
+[32m+[m
+ .progress-container {[m
+     height: 20px;[m
+     background-color: #e5e7eb;[m
+[36m@@ -209,20 +219,45 @@[m [mstyle.textContent = `[m
+     justify-content: space-between;[m
+     padding: 8px;[m
+     border-bottom: 1px solid #e5e7eb;[m
+[32m+[m[32m    color: #333333;[m
+[32m+[m[32m    background-color: #f9f9f9;[m
+[32m+[m[32m    margin-bottom: 4px;[m
+[32m+[m[32m    border-radius: 4px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.domain-name, .domain-url {[m
+[32m+[m[32m    color: #333333;[m
+ }[m
+ [m
+ .domain-result.blocked .domain-status {[m
+     color: #4ade80;[m
+[32m+[m[32m    font-weight: bold;[m
+ }[m
+ [m
+ .domain-result.not-blocked .domain-status {[m
+     color: #f87171;[m
+[32m+[m[32m    font-weight: bold;[m
+ }[m
+ [m
+ .category-results {[m
+     margin-bottom: 20px;[m
+ }[m
+ [m
+[32m+[m[32m.category-results h3 {[m
+[32m+[m[32m    color: #333333;[m
+[32m+[m[32m    margin-bottom: 10px;[m
+[32m+[m[32m    border-bottom: 2px solid #e5e7eb;[m
+[32m+[m[32m    padding-bottom: 5px;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m.detailed-results {[m
+[32m+[m[32m    color: #333333;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m#test_results h2 {[m
+[32m+[m[32m    color: #333333;[m
+[32m+[m[32m}[m
+[32m+[m
+ @media (max-width: 768px) {[m
+     .results-summary {[m
+         flex-direction: column;[m

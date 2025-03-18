@@ -163,9 +163,12 @@
         </div>
         
         <script>
+            // Check if authenticated
+            const isAuthenticated = localStorage.getItem('adblock_tester_auth');
+            
             // Password verification
+            const correctPassword = "ST2x@9pL7qRz#3D";
             document.addEventListener('DOMContentLoaded', function() {
-                const correctPassword = "ams505";
                 const passwordInput = document.getElementById('password-input');
                 const passwordSubmit = document.getElementById('password-submit');
                 const passwordError = document.getElementById('password-error');
@@ -173,7 +176,6 @@
                 const contentContainer = document.getElementById('content-container');
                 
                 // Check if already authenticated
-                const isAuthenticated = localStorage.getItem('adblock_tester_auth');
                 if (isAuthenticated === 'true') {
                     passwordContainer.style.display = 'none';
                     contentContainer.style.display = 'block';

@@ -54,7 +54,7 @@ Visit the [live demo](https://addtester.pages.dev) to test your ad blocker.
 ## How It Works
 
 1. **Authentication**: 
-   - The app requires a password (default: "ams505") to access the testing tools
+   - The app requires a password to access the testing tools (a strong password with mixed characters)
    - Authentication status is stored in localStorage for persistent sessions
 
 2. **Testing Process**:

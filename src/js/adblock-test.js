@@ -15,6 +15,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const trackersScore = document.getElementById('trackers_score');
     const analyticsScore = document.getElementById('analytics_score');
 
+    // Force background color and text color for visibility
+    testResults.style.backgroundColor = 'white';
+    testResults.style.color = '#333333';
+    
+    if (testRunning) {
+        testRunning.style.backgroundColor = 'white';
+        testRunning.style.color = '#333333';
+    }
+
     // Test domains by category
     const testDomains = {
         ads: [
@@ -171,6 +180,7 @@ style.textContent = `
 .score-circle span {
     font-size: 24px;
     font-weight: bold;
+    color: #333333;
 }
 
 .results-summary {
@@ -181,12 +191,12 @@ style.textContent = `
     margin-bottom: 20px;
 }
 
-.score-container {
-    flex: 0 0 auto;
-}
-
 .results-details {
     flex: 1;
+}
+
+.results-details p {
+    color: #333333;
 }
 
 .progress-container {
@@ -209,18 +219,43 @@ style.textContent = `
     justify-content: space-between;
     padding: 8px;
     border-bottom: 1px solid #e5e7eb;
+    color: #333333;
+    background-color: #f9f9f9;
+    margin-bottom: 4px;
+    border-radius: 4px;
+}
+
+.domain-name, .domain-url {
+    color: #333333;
 }
 
 .domain-result.blocked .domain-status {
     color: #4ade80;
+    font-weight: bold;
 }
 
 .domain-result.not-blocked .domain-status {
     color: #f87171;
+    font-weight: bold;
 }
 
 .category-results {
     margin-bottom: 20px;
+}
+
+.category-results h3 {
+    color: #333333;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 5px;
+}
+
+.detailed-results {
+    color: #333333;
+}
+
+#test_results h2 {
+    color: #333333;
 }
 
 @media (max-width: 768px) {

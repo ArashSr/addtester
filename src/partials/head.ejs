@@ -4,33 +4,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="theme-color" content="#161625">
 
-	<link rel="icon" href="./assets/<%= page || 'index' %>/icon.svg" type="image/svg+xml">
+	<link rel="icon" href="./assets/<%=page%>/icon.svg" type="image/svg+xml">
 	<% if (page == 'toolz') { %>
 		<link rel="canonical" href="https://d3ward.github.io/toolz">
 	<% } %>
 	<% if (page != 'toolz') { %>
 		<link rel="canonical" href="https://d3ward.github.io/toolz/<%=page%>">
 	<% } %>
-    <title><%= title || 'AdBlock Tester' %></title>
+    <title><%= title %></title>
   	<meta name="author" content="Ursu Eduard Cornelius">
-	<meta name="description" content="<%= description || 'Test your ad blocker effectiveness with this comprehensive test. Check how well your ad blocker handles various ad networks, trackers, and analytics services.' %>">
-	<meta name="keywords" content="<%= keywords || 'adblock test,ad block test,ad blocker test,adblock,test adblock,analytics,trackers,ads' %>,Eduard Ursu,d3ward,github">
+	<meta name="description" content="<%= description %>">
+	<meta name="keywords" content="<%= keywords %>,Eduard Ursu,d3ward,github">
 	<!-- Google / Search Engine Tags -->
-	<meta itemprop="name" content="<%= title || 'AdBlock Tester' %>">
-	<meta itemprop="description" content="<%= description || 'Test your ad blocker effectiveness with this comprehensive test. Check how well your ad blocker handles various ad networks, trackers, and analytics services.' %>">
-	<meta itemprop="image" content="https://adtester.pages.dev/assets/preview.png">
+	<meta itemprop="name" content="<%= title %>">
+	<meta itemprop="description" content="<%= description %>">
+	<meta itemprop="image" content="https://d3ward.github.io/toolz/assets/preview_toolz.png">
 	<!-- Open Graph Tags -->
-	<meta property="og:url" content="https://<%= url || 'adtester.pages.dev' %>">
+	<meta property="og:url" content="<%= url %>">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="<%= title || 'AdBlock Tester' %>">
-	<meta property="og:description" content="<%= description || 'Test your ad blocker effectiveness with this comprehensive test. Check how well your ad blocker handles various ad networks, trackers, and analytics services.' %>">
-	<meta property="og:image" content="<%= preview_thumbnail || 'https://adtester.pages.dev/assets/preview.png' %>">
+	<meta property="og:title" content="<%= title %>">
+	<meta property="og:description" content="<%= description %>">
+	<meta property="og:image" content="<%= preview_thumbnail %>">
 
 	<!-- Twitter Meta Tags -->
 	<meta name="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="https://<%= url || 'adtester.pages.dev' %>">
-	<meta name="twitter:title" content="<%= title || 'AdBlock Tester' %>">
-	<meta name="twitter:description" content="<%= description || 'Test your ad blocker effectiveness with this comprehensive test. Check how well your ad blocker handles various ad networks, trackers, and analytics services.' %>">
-	<meta name="twitter:image" content="<%= preview_thumbnail || 'https://adtester.pages.dev/assets/preview.png' %>">
+	<meta property="twitter:url" content="<%= url %>">
+	<meta name="twitter:title" content="<%= title %>">
+	<meta name="twitter:description" content="<%= description %>">
+	<meta name="twitter:image" content="<%= preview_thumbnail %>">
 
 </head>

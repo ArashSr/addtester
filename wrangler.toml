@@ -1,0 +1,10 @@
+name = "addtester"
+type = "webpack"
+account_id = ""  # You'll need to fill this in
+workers_dev = true
+
+[site]
+bucket = "dist"
+
+[build]
+command = "npm install && npm run build" 

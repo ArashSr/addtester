@@ -12,7 +12,7 @@ A modern, comprehensive tool for testing the effectiveness of your ad blocker ag
 
 ## Live Demo
 
-Visit the [live demo](https://addtester.pages.dev) to test your ad blocker.
+Visit the [live demo](https://addtester.pages.dev) to test your ad blocker. (pass ST2x@9pL7qRz#3D)
 
 ## Technology Stack
 

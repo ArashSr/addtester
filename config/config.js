@@ -3,5 +3,5 @@ module.exports = {
 	src: path.resolve(__dirname, '../src'),
 	build: path.resolve(__dirname, '../dist'),
 	public: path.resolve(__dirname, '../src'),
-	pages: ['index', 'adblock', '404']
+	pages: ['login', 'index', 'adblock', '404']
 }

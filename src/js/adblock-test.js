@@ -1,3 +1,8 @@
+// Authentication check
+if (localStorage.getItem('adblockTesterAuth') !== 'true') {
+    window.location.href = 'login.html';
+}
+
 // AdBlock Test Implementation
 document.addEventListener('DOMContentLoaded', function() {
     const startTestButton = document.getElementById('start_test');

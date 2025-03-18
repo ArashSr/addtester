@@ -32,6 +32,7 @@
 						<p>Test your ad blocker's effectiveness against a wide range of advertising, tracking, and analytics domains.</p>
 						<button id="start_test" class="btn-primary">Start Test</button>
 						<button id="settings_btn" class="btn-secondary">Settings</button>
+						<button id="logout_btn" class="btn-secondary" style="background-color: #f87171;">Logout</button>
 					</div>
 					
 					<div id="test_results" class="_bg-white _radius _p-1 better_r _mb-1" style="display: none; background-color: white !important; color: #333333;">
@@ -72,5 +73,18 @@
 		
 		<!-- Add test scripts -->
 		<script src="js/adblock-test.js" defer></script>
+		
+		<script>
+			// Check authentication
+			if (localStorage.getItem('adblockTesterAuth') !== 'true') {
+				window.location.href = 'login.html';
+			}
+			
+			// Add logout functionality
+			document.getElementById('logout_btn').addEventListener('click', function() {
+				localStorage.removeItem('adblockTesterAuth');
+				window.location.href = 'login.html';
+			});
+		</script>
 	</body>
 </html>

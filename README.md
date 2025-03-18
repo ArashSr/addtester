@@ -45,8 +45,6 @@ Toolz is licensed under [(CC BY-NC-SA 4.0)](https://creativecommons.org/licenses
 
 A modern, comprehensive tool for testing the effectiveness of your ad blocker against various ad networks, trackers, and analytics services.
 
-![AdBlock Tester Preview](https://d3ward.github.io/toolz/src/preview_toolz.png)
-
 ## Features
 
 - **Comprehensive Testing**: Checks ad blocker effectiveness against a wide range of advertising, tracking, and analytics domains
@@ -57,7 +55,7 @@ A modern, comprehensive tool for testing the effectiveness of your ad blocker ag
 
 ## Live Demo
 
-Visit the [live demo](https://arashsr.github.io/addtester/) to test your ad blocker.
+Visit the [live demo](https://addtester.pages.dev) to test your ad blocker.
 
 ## Technology Stack
 
@@ -128,7 +126,7 @@ This project is designed to be easily deployed to any static hosting service:
    npm run build
    ```
 
-2. Deploy the contents of the `dist` folder to your hosting service (GitHub Pages, Cloudflare Pages, Netlify, etc.)
+2. Deploy the contents of the `dist` folder to your hosting service (Cloudflare Pages, Netlify, etc.)
 
 ## License
 

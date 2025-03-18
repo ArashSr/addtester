@@ -2,7 +2,7 @@ html , [data-theme='light']
 	//Color Palette
 	--blue: #{$blue-500}
 	--blue-l: #{$blue-400}
-	--blue-h: #{$blue-100}
+	--blue-h: #{$blue-50}
 	--blue-d: #{$blue-800}
 	--purple: #{$purple-500}
 	--purple-l: #{$purple-400}
@@ -20,11 +20,11 @@ html , [data-theme='light']
 	--orange-h: #{$orange-100}
 	--orange-l: #{$orange-400}
 	--orange-d: #{$orange-800}
-	--white: #{$white}
+	--white: #{$white-50}
 	--white-h:#{$white-100}
 	--white-l:#{$white-0}
 	
-	--black: #{$black}
+	--black: #{$black-50}
 	--black-l: #{$black-0}
 	--black-h: #{$black-100}
 	
@@ -34,42 +34,39 @@ html , [data-theme='light']
 	--txt-on-purple: var(--white)
 	--txt-on-blue: var(--white)
 	--txt-on-orange: var(--white)
-	--gray: #{$gray-100}
+	--gray: #{$gray-200}
 	--gray-l: #{$gray-100}
 	--gray-d: #{$gray-400}
 	//Key Colors
-	--primary: #222222
-	--primary-h: #f5f5f5
-	--primary-l: #666666
-	--primary-d: #000000
+	--primary: var(--blue)
+	--primary-h: var(--blue-h)
+	--primary-l: var(--blue-l)
+	--primary-d: var(--blue-d)
 	--accent: #E3F2FD
 	--active: #ECEFF1
 	--focus: var(--primary)
 	--hover: #ECF4FD
 	//Text Color
-	--txt: #2a2a2a
+	--txt: var(--black)
 	--txt-l:var(--black-l)
-	--txt-h: #888888
+	--txt-h:var(--black-h)
 	--txt-r: var(--white)
 	//Background Colors
-	--bg: #f8f8f8
+	--bg: #{$gray-50}
 	--bg2: #{$gray-100}
 	--bg3: #{$gray-200}
 	//Border
 	--brd: #{$gray-300}
-	--brd-h: #{$gray-200}
 
 	//Navbar
 	--bg-nav: var(--bg)
 	--bg-nav-h: var(--bg2)
-	--bb-nav: #222222
+	--bb-nav: var(--primary)
 	//Form 
 	--input-bg: var(--bg)
 	--input-txt: var(--txt)
-	--input-focus: rgba(0, 0, 0, 0.05)
+	--input-focus: var(--primary-t)
 	--input-brd: var(--brd)
-	--input: #ffffff
-	--input-h: #{$white}
 	//Buttons 
 
 	--btn-bg: var(--bg)
@@ -77,15 +74,13 @@ html , [data-theme='light']
 	--btn-txt: var(--txt)
 	--btn-brd: var(--brd)
 	--btn-hs: 0
-	--btn-f: #ffffff
+	--btn-f: var(--bg2)
 	--btn-bg-h: var(--bg3)
 	--btn-sd: 0 1px var(--btn-brd)
 	--btn-radius: .5rem
 
 	//Card
 	--bg-card: var(--bg)
-	--card: #ffffff
-	--card-h: #{$gray-100}
 	//Details
 	--bg-details: var(--bg2)
 	--bg-details-open: var(--primary)
@@ -107,7 +102,3 @@ html , [data-theme='light']
 	--shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px
 	--b-shadow: #95abbb
 	--radius: .5rem
-	--shadow-color: rgba(0, 0, 0, 0.07)
-	--shadow-s: 0 0 .5rem 0 var(--shadow-color)
-	--shadow-m: 0 0 .8rem 0 var(--shadow-color)
-	--shadow-l: 0 0 1.2rem 0 var(--shadow-color)

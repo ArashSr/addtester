@@ -40,7 +40,7 @@ if (!fs.existsSync(indexPath)) {
 // Ensure _redirects file exists
 const redirectsPath = path.join(distDir, '_redirects');
 if (!fs.existsSync(redirectsPath)) {
-  fs.writeFileSync(redirectsPath, '/* /index.html 200');
+  fs.writeFileSync(redirectsPath, '/* /index.html 200!');
   console.log('Created _redirects file');
 }
 

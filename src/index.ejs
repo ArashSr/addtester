@@ -14,25 +14,151 @@
 	<%- include('partials/support_me.ejs') %>
 	<%- include('partials/adblock/changelog.ejs') %>
     <%- include('partials/header.ejs', {page:'index'}) %>
-    <main class="_ta-center">
-        <div id="password-container" class="_pb-1">
-			<div class="_bg-gray _radius _p-1 better_r">
-				<h1>AdBlock Tester</h1>
-				<p>Please enter the password to access the AdBlock tester:</p>
-                <div style="margin: 20px 0;">
-                    <input type="password" id="password-input" placeholder="Enter password" style="padding: 10px; border-radius: 4px; border: 1px solid #ccc; width: 250px; margin-right: 10px;">
-                    <button id="password-submit" class="btn-primary" style="display: inline-block; padding: 10px 20px; background-color: #3b82f6; color: white; border: none; border-radius: 6px; font-weight: 500; cursor: pointer;">Submit</button>
+    
+    <!-- Custom styles for modern look -->
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f9fafb;
+        }
+        
+        .modern-card {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        
+        .modern-card h1 {
+            margin-top: 0;
+            font-weight: 700;
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+        
+        .modern-card p {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 32px;
+        }
+        
+        .modern-input {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s ease;
+            margin-bottom: 16px;
+        }
+        
+        .modern-input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+        }
+        
+        .modern-button {
+            width: 100%;
+            padding: 14px 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #3b82f6;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .modern-button:hover {
+            background-color: #2563eb;
+            transform: translateY(-1px);
+        }
+        
+        .modern-button:active {
+            transform: translateY(1px);
+        }
+        
+        .lock-icon {
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 24px;
+            color: #3b82f6;
+        }
+        
+        .error-message {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 12px 16px;
+            color: #b91c1c;
+            font-size: 0.875rem;
+            margin-top: 16px;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+        
+        .page-container {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+    </style>
+    
+    <main class="_ta-center page-container">
+        <div id="password-container" class="fade-in">
+            <div class="modern-card">
+                <svg class="lock-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 8V6C16 3.79086 14.2091 2 12 2C9.79086 2 8 3.79086 8 6V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 10H19C20.1046 10 21 10.8954 21 12V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V12C3 10.8954 3.89543 10 5 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17C12.5523 17 13 16.5523 13 16C13 15.4477 12.5523 15 12 15C11.4477 15 11 15.4477 11 16C11 16.5523 11.4477 17 12 17Z" fill="currentColor"/>
+                    <path d="M12 17V19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                
+                <h1>AdBlock Tester</h1>
+                <p>Enter your password to access the AdBlock testing tools</p>
+                
+                <input type="password" id="password-input" class="modern-input" placeholder="Enter password">
+                <button id="password-submit" class="modern-button">Unlock Access</button>
+                
+                <div id="password-error" class="error-message">
+                    <strong>Access denied:</strong> The password you entered is incorrect. Please try again.
                 </div>
-                <p id="password-error" style="color: #ef4444; display: none;">Incorrect password. Please try again.</p>
-			</div>
+            </div>
         </div>
         
-        <div id="content-container" class="_pb-1" style="display: none;">
-			<div class="_bg-gray _radius _p-1 better_r">
-				<h1>AdBlock Tester</h1>
-				<p>Test your ad blocker's effectiveness against a wide range of advertising, tracking, and analytics domains.</p>
-				<a href="adblock.html" class="btn-primary" style="display: inline-block; margin-top: 16px; padding: 12px 24px; background-color: #3b82f6; color: white; text-decoration: none; border-radius: 6px; font-weight: 500;">Go to AdBlock Tester</a>
-			</div>
+        <div id="content-container" class="fade-in" style="display: none;">
+            <div class="modern-card">
+                <svg class="lock-icon" style="color: #22c55e;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 10H19C20.1046 10 21 10.8954 21 12V20C21 21.1046 20.1046 22 19 22H5C3.89543 22 3 21.1046 3 20V12C3 10.8954 3.89543 10 5 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 8V6C16 3.79086 14.2091 2 12 2C9.79086 2 8 3.79086 8 6V8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 15L11 17L15 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                
+                <h1>Access Granted</h1>
+                <p>You will be redirected to the AdBlock tester in a moment...</p>
+                
+                <a href="adblock.html" class="modern-button" style="display: inline-block; text-decoration: none; text-align: center; margin-top: 16px;">
+                    Continue to AdBlock Tester
+                </a>
+            </div>
         </div>
         
         <script>
@@ -54,7 +180,7 @@
                     // Auto-redirect to the AdBlock tester after 1 second
                     setTimeout(function() {
                         window.location.href = 'adblock.html';
-                    }, 1000);
+                    }, 1500);
                 }
                 
                 // Password verification
@@ -77,11 +203,13 @@
                         // Redirect to AdBlock tester
                         setTimeout(function() {
                             window.location.href = 'adblock.html';
-                        }, 1000);
+                        }, 1500);
                     } else {
                         // Show error
                         passwordError.style.display = 'block';
                         passwordInput.value = '';
+                        // Focus on the input
+                        passwordInput.focus();
                     }
                 }
             });

@@ -4,17 +4,17 @@
 		{
 			page:'adblock',
 			title:'Test Ad Block - Toolz',
-			description:'Project Archived',
+			description:'Test your ad blocker effectiveness with this comprehensive test. Check how well your ad blocker handles various ad networks, trackers, and analytics services.',
 			url: 'd3ward.github.io/toolz/adblock',
 			preview_thumbnail:'https://d3ward.github.io/toolz/src/preview_toolz.png',
 			keywords:'adblock test,ad block test,ad blocker test,adblock,test adblock,analytics,trackers,ads,cosmetic filter,ublock, ublockorigin,adblock extension,script loading'
 		}) %>
-	<body class="_overflowhidden">
-
+	<body>
 		<%- include('partials/support_me.ejs') %>
+		<%- include('partials/adblock/changelog.ejs') %>
 		<%- include('partials/header.ejs', {page:'adblock'}) %>
 
-		<main class="_f-center">
+		<main>
 			<noscript>
 				<div class="_bg-red _txt-white _radius _p-1 better_r _py-2 _mt-2">
 					<h3>JavaScript is required to run this test. Please enable JavaScript in your browser settings.</h3>
@@ -24,19 +24,53 @@
 						}
 					</style>
 				</div>
-			  </noscript>
+			</noscript>
 
-    			<section class="_mh-100">
-    				<div>
-    					<div class="_bg-gray _radius _p-1 better_r">
-    						<b>
-    						This project is no longer maintained and has been archived.</b><br>
-                            Thank you for being part of this journey and for your support.
-    					</div>
-    				</div>
-    			</section>
+			<section id="m_test" class="_mh-100 _py-2">
+				<div>
+					<div class="_bg-gray _radius _p-1 better_r _mb-1">
+						<p>Test your ad blocker's effectiveness against a wide range of advertising, tracking, and analytics domains.</p>
+						<button id="start_test" class="btn-primary">Start Test</button>
+						<button id="settings_btn" class="btn-secondary">Settings</button>
+					</div>
+					
+					<div id="test_results" class="_bg-white _radius _p-1 better_r _mb-1" style="display: none;">
+						<h2>Test Results</h2>
+						<div class="results-summary">
+							<div class="score-container">
+								<div id="score_circle" class="score-circle">
+									<span id="score_text">0%</span>
+								</div>
+							</div>
+							<div class="results-details">
+								<p><strong>Blocked:</strong> <span id="blocked_count">0</span>/<span id="total_count">0</span></p>
+								<p><strong>Ad Servers:</strong> <span id="ads_score">0%</span></p>
+								<p><strong>Trackers:</strong> <span id="trackers_score">0%</span></p>
+								<p><strong>Analytics:</strong> <span id="analytics_score">0%</span></p>
+							</div>
+						</div>
+						<div id="detailed_results" class="detailed-results">
+							<!-- Results will be populated here by JavaScript -->
+						</div>
+					</div>
+					
+					<div id="test_running" class="_bg-white _radius _p-1 better_r _mb-1" style="display: none;">
+						<h2>Testing in progress...</h2>
+						<div class="progress-container">
+							<div id="progress_bar" class="progress-bar"></div>
+						</div>
+						<p id="current_test">Preparing tests...</p>
+					</div>
+				</div>
+			</section>
+			
+			<%- include('partials/adblock/settings.ejs') %>
 		</main>
+		
 		<%- include('partials/footer.ejs') %>
 		<%- include('partials/gotop.ejs') %>
+		
+		<!-- Add test scripts -->
+		<script src="js/adblock-test.js" defer></script>
 	</body>
 </html>

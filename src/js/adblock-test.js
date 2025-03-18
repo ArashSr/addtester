@@ -15,14 +15,42 @@ document.addEventListener('DOMContentLoaded', function() {
     const trackersScore = document.getElementById('trackers_score');
     const analyticsScore = document.getElementById('analytics_score');
 
-    // Force background color and text color for visibility
-    testResults.style.backgroundColor = 'white';
-    testResults.style.color = '#333333';
+    // Force colors for better visibility regardless of theme
+    testResults.style.setProperty('background-color', 'white', 'important');
+    testResults.style.setProperty('color', '#333333', 'important');
     
     if (testRunning) {
-        testRunning.style.backgroundColor = 'white';
-        testRunning.style.color = '#333333';
+        testRunning.style.setProperty('background-color', 'white', 'important');
+        testRunning.style.setProperty('color', '#333333', 'important');
     }
+    
+    // Set dark text color for all text in the results container
+    const forceDarkText = () => {
+        const elements = testResults.querySelectorAll('*');
+        elements.forEach(el => {
+            el.style.setProperty('color', '#333333', 'important');
+        });
+        
+        // Fix domain results specifically
+        const domainResults = detailedResults.querySelectorAll('.domain-result');
+        domainResults.forEach(result => {
+            result.style.setProperty('background-color', '#f8f8f8', 'important');
+            result.style.setProperty('border', '1px solid #e0e0e0', 'important');
+            result.style.setProperty('margin-bottom', '5px', 'important');
+            result.style.setProperty('padding', '10px', 'important');
+            
+            // Set proper colors for status indicators
+            const status = result.querySelector('.domain-status');
+            if (status) {
+                if (status.textContent.includes('✓')) {
+                    status.style.setProperty('color', '#22c55e', 'important'); // Green
+                } else {
+                    status.style.setProperty('color', '#ef4444', 'important'); // Red
+                }
+                status.style.setProperty('font-weight', 'bold', 'important');
+            }
+        });
+    };
 
     // Test domains by category
     const testDomains = {
@@ -98,7 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Test each category
         for (const [category, domains] of Object.entries(testDomains)) {
             resultsHTML += `<div class="category-results">
-                <h3>${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
+                <h3 style="color: #333333 !important;">${category.charAt(0).toUpperCase() + category.slice(1)}</h3>
                 <div class="domain-list">`;
                 
             for (const domainInfo of domains) {
@@ -115,10 +143,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Add to results HTML
-                resultsHTML += `<div class="domain-result ${isBlocked ? 'blocked' : 'not-blocked'}">
-                    <span class="domain-name">${domainInfo.name}</span>
-                    <span class="domain-url">${domainInfo.domain}</span>
-                    <span class="domain-status">${isBlocked ? '✓ Blocked' : '✗ Not Blocked'}</span>
+                resultsHTML += `<div class="domain-result ${isBlocked ? 'blocked' : 'not-blocked'}" style="background-color: #f8f8f8 !important; color: #333333 !important; border: 1px solid #e0e0e0; margin-bottom: 5px; padding: 10px;">
+                    <span class="domain-name" style="color: #333333 !important; font-weight: bold;">${domainInfo.name}</span>
+                    <span class="domain-url" style="color: #333333 !important;">${domainInfo.domain}</span>
+                    <span class="domain-status" style="color: ${isBlocked ? '#22c55e' : '#ef4444'} !important; font-weight: bold;">${isBlocked ? '✓ Blocked' : '✗ Not Blocked'}</span>
                 </div>`;
             }
             
@@ -140,11 +168,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Set score circle color based on score
         if (overallScore >= 80) {
-            scoreCircle.style.borderColor = '#4ade80'; // Green
+            scoreCircle.style.borderColor = '#22c55e'; // Green
         } else if (overallScore >= 50) {
-            scoreCircle.style.borderColor = '#facc15'; // Yellow
+            scoreCircle.style.borderColor = '#eab308'; // Yellow
         } else {
-            scoreCircle.style.borderColor = '#f87171'; // Red
+            scoreCircle.style.borderColor = '#ef4444'; // Red
         }
         
         // Update detailed results
@@ -153,6 +181,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show results
         testRunning.style.display = 'none';
         testResults.style.display = 'block';
+        
+        // Apply dark text to all elements
+        forceDarkText();
     }
 
     // Event listeners
@@ -170,7 +201,7 @@ style.textContent = `
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 10px solid #4ade80;
+    border: 10px solid #22c55e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,7 +211,7 @@ style.textContent = `
 .score-circle span {
     font-size: 24px;
     font-weight: bold;
-    color: #333333;
+    color: #333333 !important;
 }
 
 .results-summary {
@@ -196,7 +227,11 @@ style.textContent = `
 }
 
 .results-details p {
-    color: #333333;
+    color: #333333 !important;
+}
+
+.results-details strong {
+    color: #333333 !important;
 }
 
 .progress-container {
@@ -217,25 +252,30 @@ style.textContent = `
 .domain-result {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
+    padding: 10px;
     border-bottom: 1px solid #e5e7eb;
-    color: #333333;
-    background-color: #f9f9f9;
-    margin-bottom: 4px;
+    color: #333333 !important;
+    background-color: #f8f8f8 !important;
+    margin-bottom: 5px;
     border-radius: 4px;
+    border: 1px solid #e0e0e0;
 }
 
 .domain-name, .domain-url {
-    color: #333333;
+    color: #333333 !important;
+}
+
+.domain-name {
+    font-weight: bold;
 }
 
 .domain-result.blocked .domain-status {
-    color: #4ade80;
+    color: #22c55e !important;
     font-weight: bold;
 }
 
 .domain-result.not-blocked .domain-status {
-    color: #f87171;
+    color: #ef4444 !important;
     font-weight: bold;
 }
 
@@ -244,18 +284,22 @@ style.textContent = `
 }
 
 .category-results h3 {
-    color: #333333;
+    color: #333333 !important;
     margin-bottom: 10px;
     border-bottom: 2px solid #e5e7eb;
     padding-bottom: 5px;
 }
 
 .detailed-results {
-    color: #333333;
+    color: #333333 !important;
 }
 
 #test_results h2 {
-    color: #333333;
+    color: #333333 !important;
+}
+
+#current_test {
+    color: #333333 !important;
 }
 
 @media (max-width: 768px) {
@@ -280,12 +324,16 @@ style.textContent = `
 
 .btn-primary {
     background-color: #3b82f6;
-    color: white;
+    color: white !important;
 }
 
 .btn-secondary {
     background-color: #e5e7eb;
-    color: #1f2937;
+    color: #1f2937 !important;
+}
+
+#test_running h2 {
+    color: #333333 !important;
 }
 `;
 document.head.appendChild(style); 

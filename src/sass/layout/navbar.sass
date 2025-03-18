@@ -1,103 +1,126 @@
 /* ------------------ Navbar ------------------ */
 header
+	position: relative
 	width: 100%
-	z-index: 2
-	padding: .5rem .5rem 0 .5rem
-	top: 0
-	
+	font-weight: 500
+	z-index: 2000
+	margin-bottom: 1rem
+	box-shadow: var(--shadow-s)
+	background-color: var(--card)
+	border-bottom: 1px solid var(--brd)
+
+	&._sticky
+		position: sticky
+		top: 0
+
 nav
 	display: flex
-	justify-content: space-between
 	align-items: center
-	background: var(--bg-nav)
-	border-radius: calc( var(--radius) + .2rem)
-	box-shadow: var(--shadow)
-	padding: .4rem
+	padding: 1rem 1.5rem
 	width: 100%
-	margin: auto
-	max-width: 60rem
-	>.nav-overlay
-		display: none
-		position: fixed
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		background: rgba(17, 17, 17, 0.6)
-		z-index: -1
-	*
+	max-width: 1200px
+	margin: 0 auto
+	justify-content: space-between
+	position: relative
+
+	ul
+		display: flex
+		flex-direction: row
+		align-items: center
+		gap: 1.3rem
 		margin: 0
 		padding: 0
+
+	a
+		color: var(--txt)
+		text-decoration: none
+		transition: color 0.25s
 		display: flex
 		align-items: center
-	>button
-		display: none
-		margin: 0 !important
-		min-width: auto
-		font-size: 0.875em
-		padding: .5rem
-		>svg line
-			stroke: currentColor
-			stroke-width: 4
-			stroke-linecap: round
-			transform-origin: 12px 12px
-			transition: all .4s
-	>a
-		gap: .5rem
-		font-size: 1.6rem
-		padding: 0.4rem
-		>svg
-			height: 1.6rem !important
-			width: 1.6rem !important
-	a:hover
-		border: none !important
-	>ul
-		flex-direction: row
-		justify-content: space-between
-		list-style: none
-		width: auto
-		gap: .5rem
-		>li
-			gap: .5rem
-		>li >a,>li .nav-item
-			padding: .4rem
-			border-radius: var(--radius)
+		font-weight: 500
+		
+		&:hover
+			color: var(--primary)
+		
+	li > a
+		padding: 0.5rem 0
+		position: relative
+		font-size: 0.95rem
+		
+		&::after
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 0
+			height: 2px
+			background-color: var(--primary)
+			transition: width 0.3s ease
+			
+		&:hover::after
+			width: 100%
+
+	.nav-item
+		position: relative
+		cursor: pointer
+		
+	.theme-toggle
+		display: flex
+		align-items: center
+		justify-content: center
+		cursor: pointer
+		
+		.theme-icon
+			display: none
 			color: var(--txt)
-			&:hover,&.active
-				background: var(--bg-nav-h)
-			&.active
+			
+			&:hover
 				color: var(--primary)
 
-@media only screen and ( max-width: 768px )
+	button
+		background: transparent
+		border: none
+		cursor: pointer
+		display: none
+		padding: 0.5rem
+		color: var(--txt)
+		
+		&:hover
+			color: var(--primary)
+
+@media (max-width: 768px)
 	nav
-		&>ul
+		padding: 1rem
+		
+		ul
 			position: fixed
-			top: 5rem
-			padding: .5rem
-			right: -100%
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
 			flex-direction: column
-			background: var(--bg-nav)
-			width: calc(100% - 1rem)
-			border-radius: 10px
-			text-align: center
-			transition: .3s
-			box-shadow: var(--shadow)
-		&>button
-			display: flex
-			cursor: pointer
-		&.active
-			&>.nav-overlay
-				display: flex
-			>ul
-				right: .5rem
+			background-color: var(--bg)
+			padding: 5rem 2rem
+			transform: translateX(-100%)
+			transition: transform 0.3s ease
+			z-index: 1000
+			
+			&._show
+				transform: translateX(0)
 				
-			>button svg line:nth-child(1)
-				opacity: 0
-				transform: translateY(-100%)
-			>button svg line:nth-child(4)
-				opacity: 0
-				transform: translateY(100%)
-			>button svg line:nth-child(2)
-				transform: rotate(45deg)
-			>button svg line:nth-child(3)
-				transform: rotate(-45deg)
+		button
+			display: block
+			z-index: 1001
+			
+		.nav-overlay
+			position: fixed
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background-color: rgba(0, 0, 0, 0.5)
+			z-index: 999
+			display: none
+			
+			&._show
+				display: block

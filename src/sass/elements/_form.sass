@@ -199,3 +199,160 @@ fieldset
 
 	input[type="radio"]:checked
 		--s: 0.8
+
+/* ---------------- Form elements ---------------- */
+.form-group
+	margin-bottom: 1.25rem
+	
+	label
+		display: block
+		margin-bottom: 0.5rem
+		font-weight: 500
+		color: var(--txt)
+		font-size: 0.95rem
+
+input,
+select,
+textarea
+	display: block
+	width: 100%
+	padding: 0.65rem 1rem
+	font-size: 0.95rem
+	line-height: 1.5
+	color: var(--txt)
+	background-color: var(--input)
+	background-clip: padding-box
+	border: 1px solid var(--input-brd)
+	border-radius: 0.375rem
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+	
+	&:focus
+		border-color: var(--primary)
+		box-shadow: 0 0 0 3px var(--input-focus)
+		outline: none
+	
+	&::placeholder
+		color: var(--txt-h)
+		opacity: 0.6
+	
+	&:disabled,
+	&[readonly]
+		background-color: var(--bg2)
+		opacity: 0.7
+		cursor: not-allowed
+
+select
+	appearance: none
+	background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E")
+	background-repeat: no-repeat
+	background-position: right 0.75rem center
+	background-size: 16px 12px
+	padding-right: 2.5rem
+	
+	&::-ms-expand
+		display: none
+
+textarea
+	min-height: 100px
+	resize: vertical
+
+/* Checkboxes and radio buttons */
+.form-check
+	display: flex
+	align-items: center
+	margin-bottom: 0.75rem
+	
+	input[type="checkbox"],
+	input[type="radio"]
+		flex-shrink: 0
+		width: 1.1rem
+		height: 1.1rem
+		margin-right: 0.5rem
+		appearance: none
+		border: 1px solid var(--input-brd)
+		background-color: var(--input)
+		transition: all 0.15s ease-in-out
+		position: relative
+		cursor: pointer
+	
+	input[type="checkbox"]
+		border-radius: 0.25rem
+		
+		&:checked
+			background-color: var(--primary)
+			border-color: var(--primary)
+			
+			&::after
+				content: ""
+				position: absolute
+				left: 0.35rem
+				top: 0.15rem
+				width: 0.35rem
+				height: 0.65rem
+				border: solid white
+				border-width: 0 2px 2px 0
+				transform: rotate(45deg)
+	
+	input[type="radio"]
+		border-radius: 50%
+		
+		&:checked
+			border-color: var(--primary)
+			border-width: 4px
+			background-color: white
+	
+	label
+		margin-bottom: 0
+		cursor: pointer
+
+/* Custom range slider */
+input[type="range"]
+	appearance: none
+	height: 6px
+	background-color: var(--bg2)
+	border-radius: 3px
+	margin: 1rem 0
+	padding: 0
+	
+	&::-webkit-slider-thumb
+		appearance: none
+		width: 18px
+		height: 18px
+		border-radius: 50%
+		background-color: var(--primary)
+		cursor: pointer
+		border: none
+		transition: background-color 0.15s
+		
+		&:hover
+			background-color: var(--primary-d)
+	
+	&:focus
+		outline: none
+		
+		&::-webkit-slider-thumb
+			box-shadow: 0 0 0 3px var(--input-focus)
+
+/* Form validation styles */
+.is-valid
+	border-color: var(--green) !important
+	
+	&:focus
+		box-shadow: 0 0 0 3px rgba(var(--green-h), 0.25) !important
+
+.is-invalid
+	border-color: var(--red) !important
+	
+	&:focus
+		box-shadow: 0 0 0 3px rgba(var(--red-h), 0.25) !important
+
+.form-feedback
+	display: block
+	margin-top: 0.25rem
+	font-size: 0.875rem
+	
+	&.valid-feedback
+		color: var(--green)
+	
+	&.invalid-feedback
+		color: var(--red)

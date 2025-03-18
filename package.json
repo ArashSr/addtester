@@ -11,7 +11,8 @@
     "lint": "eslint  'src/**/*.{js,ts}' && echo 'Linting complete!'",
     "lint-fix": "eslint  'src/**/*.{js,ts}' --fix",
     "cf-build": "npm run build && node cloudflare-config.js",
-    "cloudflare": "node deploy.js"
+    "cloudflare": "node deploy.js",
+    "static-deploy": "node static-deploy.js"
   },
   "author": "Eduard Ursu",
   "license": "(CC BY-NC-SA 4.0)",

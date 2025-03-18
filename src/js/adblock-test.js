@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     // Force colors for better visibility regardless of theme
     testResults.style.setProperty('background-color', 'white', 'important');
     testResults.style.setProperty('color', '#333333', 'important');
@@ -54,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+=======
+>>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======
 >>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======
@@ -219,7 +222,10 @@ style.textContent = `
     font-weight: bold;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     color: #333333 !important;
+=======
+>>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======
 >>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======
@@ -240,12 +246,17 @@ style.textContent = `
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 .results-details p {
     color: #333333 !important;
 }
 
 .results-details strong {
     color: #333333 !important;
+=======
+.results-details {
+    flex: 1;
+>>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======
 .results-details {
     flex: 1;
@@ -276,6 +287,7 @@ style.textContent = `
     justify-content: space-between;
     padding: 10px;
     border-bottom: 1px solid #e5e7eb;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     color: #333333 !important;
@@ -321,12 +333,23 @@ style.textContent = `
 .domain-result.not-blocked .domain-status {
     color: #f87171;
 >>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
+=======
+}
+
+.domain-result.blocked .domain-status {
+    color: #4ade80;
+}
+
+.domain-result.not-blocked .domain-status {
+    color: #f87171;
+>>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 }
 
 .category-results {
     margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 .category-results h3 {
@@ -348,6 +371,8 @@ style.textContent = `
     color: #333333 !important;
 }
 
+=======
+>>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======
 >>>>>>> parent of f924887 (Fix text color and background for better readability in AdBlock tester)
 =======

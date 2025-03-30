@@ -1,95 +1,115 @@
-# AdBlock Tester
+# AdBlock Tester 🛡️
 
-A modern, comprehensive tool for testing the effectiveness of your ad blocker against various ad networks, trackers, and analytics services.
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/demo-online-brightgreen.svg)](https://addtester.pages.dev)
+[![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare%20Pages-orange.svg)](https://pages.cloudflare.com/)
 
-## Features
+A comprehensive, modern tool for testing the effectiveness of your ad blocker against various ad networks, trackers, and analytics services.
 
-- **Comprehensive Testing**: Checks ad blocker effectiveness against a wide range of advertising, tracking, and analytics domains
-- **Detailed Results**: Provides percentage scores for blocked ad servers, trackers, and analytics services
-- **Modern UI**: Clean, responsive interface with both light and dark mode support
-- **Password Protection**: Secure access with password authentication
-- **Customizable Settings**: Configure which domains to test against
+![AdBlock Tester](https://via.placeholder.com/800x400?text=AdBlock+Tester+Screenshot)
 
-## Live Demo
+## ✨ Features
 
-Visit the [live demo](https://addtester.pages.dev) to test your ad blocker. (pass ST2x@9pL7qRz#3D)
+- **Comprehensive Testing** - Evaluates ad blocker effectiveness against a wide range of advertising, tracking, and analytics domains
+- **Detailed Reports** - Provides percentage scores and breakdown of blocked elements
+- **Modern UI/UX** - Clean, responsive interface with light and dark mode support
+- **Secure Access** - Password protection for controlled usage
+- **Customization** - Configure test domains and settings to match your needs
 
-## Technology Stack
+## 🚀 Live Demo
 
-- HTML5, CSS3, JavaScript (ES6+)
-- EJS (Embedded JavaScript) for templating
-- SASS for styling
-- LocalStorage for authentication persistence
+Test your ad blocker now: [addtester.pages.dev](https://addtester.pages.dev)
 
-## Getting Started
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML5, CSS3, JavaScript (ES6+)
+- **Templating:** EJS (Embedded JavaScript)
+- **Styling:** SASS/SCSS
+- **Build System:** Webpack
+- **Deployment:** Cloudflare Pages
+
+## 🏁 Getting Started
 
 ### Prerequisites
 
-- Node.js and npm installed on your machine
-- A modern web browser
+- Node.js 14+ and npm
+- Modern web browser
 
 ### Installation
 
-1. Clone the repository:
-   ```
-   git clone https://github.com/ArashSr/addtester.git
-   cd addtester
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/ArashSr/addtester.git
+cd addtester
 
-2. Install dependencies:
-   ```
-   npm install
-   ```
+# Install dependencies
+npm install
 
-3. Start the development server:
-   ```
-   npm run dev
-   ```
+# Start development server
+npm run dev
 
-4. Build for production:
-   ```
-   npm run build
-   ```
+# Build for production
+npm run build
+```
 
-## How It Works
+## 🧪 How It Works
 
-1. **Authentication**: 
-   - The app requires a password to access the testing tools (a strong password with mixed characters)
-   - Authentication status is stored in localStorage for persistent sessions
+1. **Authentication Flow**
+   - Secure password protection with localStorage persistence
+   - Session management for continued access
 
-2. **Testing Process**:
-   - The tool attempts to load resources from known ad servers, trackers, and analytics providers
-   - It then measures which resources were blocked by your ad blocker
-   - Results are calculated as percentages of blocked domains in each category
+2. **Testing Methodology**
+   - Attempts to load resources from known ad servers, trackers, and analytics
+   - Measures which resources were successfully blocked
+   - Calculates effectiveness percentages by category
 
-3. **Results Analysis**:
-   - A comprehensive score shows your ad blocker's overall effectiveness
-   - Detailed breakdowns show which specific domains were blocked or allowed
+3. **Result Analysis**
+   - Overall effectiveness score
+   - Detailed breakdown by category (ads, trackers, analytics)
+   - List of blocked vs. unblocked domains
 
-## Customization
+## ⚙️ Customization
 
-You can customize various aspects of the AdBlock Tester:
+```javascript
+// Change authentication password
+const correctPassword = 'your-secure-password';
 
-- **Password**: Change the `correctPassword` variable in the authentication scripts
-- **Test Domains**: Modify the domain lists in the adblock-test.js file
-- **Styling**: The app supports light/dark mode toggling and uses CSS variables for theming
+// Modify test domains
+const adDomains = ['example-ad.com', 'ads.example.net', ...];
+const trackerDomains = ['tracker.example.com', ...];
+```
 
-## Deployment
+## 📦 Deployment
 
-This project is designed to be easily deployed to any static hosting service:
+### Cloudflare Pages (Recommended)
 
-1. Build the project:
-   ```
-   npm run build
-   ```
+```bash
+# Build the project
+npm run build
 
-2. Deploy the contents of the `dist` folder to your hosting service (Cloudflare Pages, Netlify, etc.)
+# Deploy using custom Cloudflare build script
+npm run cloudflare-build
+```
 
-## License
+### Other Static Hosting
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+Deploy the `dist` folder to any static hosting service like Netlify, Vercel, or GitHub Pages.
 
-## Acknowledgments
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👏 Acknowledgments
 
 - Original concept inspired by various ad blocker testing tools
-- SVG icons from various open-source icon libraries
+- Icon libraries and open-source components used in the UI
